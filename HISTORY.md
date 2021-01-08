@@ -19,6 +19,8 @@ Work in progress
 - yalafi core
   - **changed interface** to macro handler functions: added argument 'delim'
     (issue [#136](../../issues/136))
+  - added vowel detection, e.g., for equation replacements
+    (issue [#100](../../issues/100))
   - added approximation of macro \\def (issue [#125](../../issues/125))
   - added option --nosp (issue [#131](../../issues/131))
   - fixed bug: macro could consume a closing \} as argument token

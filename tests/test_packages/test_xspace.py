@@ -23,8 +23,8 @@ This is a footnote.
 data_test_macros_latex = [
 
     (r'A\xspace B', 'A B'),
-    (r'A\xspace $x\xspace$ B', 'A C-C-C B'),
-    (r'A\xspace {}$x\xspace$B', 'AC-C-CB'),
+    (r'A\xspace $x\xspace$ B', 'A f-f-f B'),
+    (r'A\xspace {}$x\xspace$B', 'Af-f-fB'),
     (r'A\xspace~B', 'A\N{NO-BREAK SPACE}B'),
     (r"A\xspace's B", "A's B"),
     (r"A\xspace'' B", 'A” B'),

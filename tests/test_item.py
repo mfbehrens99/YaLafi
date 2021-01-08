@@ -22,7 +22,7 @@ A
  C-C-C).  E
 """
 def test_1():
-    parms = parameters.Parameters()
+    parms = parameters.Parameters(language='de-DE')
     p = parser.Parser(parms)
     toks = p.parse(latex_1)
     plain, pos = utils.get_txt_pos(toks)

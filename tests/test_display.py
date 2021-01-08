@@ -16,12 +16,12 @@ B
 """
 plain_1 = r"""
 A
-  V-V-V  equal W-W-W
-  W-W-W  equal X-X-X.
+  s-s-s  equal v-v-v
+  v-v-v  equal w-w-w.
 B
 """
 def test_1():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_1)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_1 == plain
@@ -34,11 +34,11 @@ latex_2 = r"""
 \end{align}
 """
 plain_2 = r"""
-  V-V-V  equal W-W-W,
-  X-X-X  equal Y-Y-Y
+  s-s-s  equal v-v-v,
+  w-w-w  equal z-z-z
 """
 def test_2():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_2)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_2 == plain
@@ -53,13 +53,13 @@ latex_3 = r"""
 \end{align}
 """
 plain_3 = r"""
-  V-V-V  equal W-W-W
-     minus X-X-X
-    times Y-Y-Y
-    times Z-Z-Z.
+  s-s-s  equal v-v-v
+     minus w-w-w
+    times z-z-z
+    times u-u-u.
 """
 def test_3():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_3)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_3 == plain
@@ -72,11 +72,11 @@ latex_4 = r"""
 \end{align}
 """
 plain_4 = r"""
-  V-V-V  equal W-W-W for all C-C-C.
-  X-X-X  equal Y-Y-Y.
+  s-s-s  equal v-v-v for all c-c-c.
+  w-w-w  equal z-z-z.
 """
 def test_4():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_4)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_4 == plain
@@ -89,11 +89,11 @@ latex_4a = r"""
 \end{align}
 """
 plain_4a = r"""
-  V-V-V  equal W-W-W for all C-C-C.
-  X-X-X  equal Y-Y-Y.
+  s-s-s  equal v-v-v for all c-c-c.
+  w-w-w  equal z-z-z.
 """
 def test_4a():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_4a)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_4a == plain
@@ -106,11 +106,11 @@ latex_5 = r"""
 \end{align}
 """
 plain_5 = r"""
-  V-V-V  equal W-W-W for all X-X-X.
-  Y-Y-Y  equal Z-Z-Z.
+  s-s-s  equal v-v-v for all w-w-w.
+  z-z-z  equal u-u-u.
 """
 def test_5():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
     toks = p.parse(latex_5)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_5 == plain
@@ -126,7 +126,7 @@ plain_6 = r"""
     minus V-V-V
 """
 def test_6():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_6)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_6 == plain
@@ -140,7 +140,7 @@ plain_7 = r"""
   V-V-V:  minus  W-W-W
 """
 def test_7():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_7)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_7 == plain
@@ -160,7 +160,7 @@ A
   W-W-W
 """
 def test_8():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_8)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_8 == plain
@@ -193,12 +193,16 @@ latex_10 = r"""
 \begin{align}
     a &= b.
 \end{align}
+\begin{align}
+    v &= w.
+\end{align}
 """
 plain_10 = r"""
-  W-W-W.
+  s-s-s.
+  z-z-z.
 """
 def test_10():
-    parms = parameters.Parameters()
+    parms = parameters.Parameters(language='en-GB')
     parms.math_displayed_simple = True
     p = parser.Parser(parms)
     toks = p.parse(latex_10)

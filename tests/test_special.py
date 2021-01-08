@@ -112,7 +112,7 @@ B
 """
 plain_5 = r"""
 A
-  V-V-V,
+  v-v-v,
 B
 """
 def test_5():

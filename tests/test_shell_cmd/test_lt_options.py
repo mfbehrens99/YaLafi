@@ -16,37 +16,37 @@ data_test_1 = [
     ('', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--disable ""', """
 --json --encoding utf-8 --language en-GB -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--disable x,y', """
 --json --encoding utf-8 --language en-GB --disable x,y -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--enable x,y --disable ""', """
 --json --encoding utf-8 --language en-GB --enable x,y -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--disablecategories x,y', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE --disablecategories x,y -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--enablecategories x,y', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE --enablecategories x,y -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--language ru-RU', """
@@ -58,7 +58,7 @@ C-C-C D-D-D E-E-E
     ('--lt-options "~--xx 1 --yy 2"', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE --xx 1 --yy 2 -
 
-C-C-C D-D-D E-E-E
+f-f-f c-c-c d-d-d
 
 """),
     ('--plain-input', """
@@ -83,13 +83,13 @@ data_test_2 = [
     ('--multi-language', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-  V-V-V  equal  W-W-W.
+  s-s-s  equal  v-v-v.
 
 """),
     ('--simple-equations', """
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-  W-W-W.
+  s-s-s.
 
 """),
 ]

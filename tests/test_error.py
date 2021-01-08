@@ -14,7 +14,7 @@ $
 YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 """
 plain_1 = r"""
- LATEXXXERROR (missing end of maths) C-C-C"""
+ LATEXXXERROR (missing end of maths) c-c-c"""
 def test_1():
     p = parser.Parser(parms)
     toks = p.parse(latex_1)

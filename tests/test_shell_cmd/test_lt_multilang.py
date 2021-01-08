@@ -33,7 +33,7 @@ B
 
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-A L-L-L C
+A p-p-p C
 
 """
 def test_2():
@@ -73,7 +73,7 @@ B
 
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-A L-L-L C
+A p-p-p C
 
 """
 def test_4():
@@ -92,7 +92,7 @@ B
 
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-A L-L-L C
+A p-p-p C
 
 """
 def test_5():
@@ -111,7 +111,7 @@ B
 
 --json --encoding utf-8 --language en-GB --disable WHITESPACE_RULE -
 
-A L-L-L C
+A p-p-p C
 
 """
 def test_6():

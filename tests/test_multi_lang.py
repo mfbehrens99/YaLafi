@@ -232,7 +232,7 @@ plain_10 = {
 ],
 'en-GB': [
 """
-"`L-L-L"'
+"`p-p-p"'
 """
 ]
 }
@@ -281,7 +281,7 @@ plain_12 = {
 ],
 'en-GB': [
 """
-A L-L-L
+A p-p-p
 B
 """
 ]
@@ -315,10 +315,10 @@ plain_13 = {
 'en-GB': [
 """
 A
-L-L-L
+p-p-p
 C
-M-M-ME
-N-N-N
+q-q-qE
+n-n-n
 G
 """
 ]
@@ -373,4 +373,28 @@ plain_15 = {
 def test_15():
     plain = get_ml_txt(latex_15, lang='en-GB')
     assert plain == plain_15
+
+
+#   vowel detection
+#
+latex_16 = r"""
+\usepackage[german,english]{babel}
+This is a \foreignlanguage{german}{Test}.
+This is an \foreignlanguage{german}{Apfel}.
+"""
+plain_16 = {
+'de-DE': [
+"""Test""",
+"""Apfel"""
+],
+'en-GB': [
+"""
+This is a p-p-p.
+This is an n-n-n.
+"""
+]
+}
+def test_16():
+    plain = get_ml_txt(latex_16, lang='en-GB')
+    assert plain == plain_16
 

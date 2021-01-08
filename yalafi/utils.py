@@ -239,7 +239,10 @@ def ml_append_placeholder(sec, incl, parms):
         return
 
     lang = parms.check_parser_lang(sec.lang)
-    repl = parms.parser_lang_settings[lang].lang_change_repl
+    if incl.txt.strip()[0] in parms.parser_lang_settings[lang].vowel_sounds:
+        repl = parms.parser_lang_settings[lang].lang_change_repl_vowel
+    else:
+        repl = parms.parser_lang_settings[lang].lang_change_repl
     repl[:] = repl [1:] + repl[:1]
     txt = repl[0]
 

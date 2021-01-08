@@ -14,7 +14,7 @@ plain_1 = r"""
 X C-C-C; Y
 """
 def test_1():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_1)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_1 == plain
@@ -26,7 +26,7 @@ plain_2 = r"""
 XC-C-C Y
 """
 def test_2():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_2)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_2 == plain
@@ -39,7 +39,7 @@ plain_3 = r"""
 X C-C-C for all D-D-D Y
 """
 def test_3():
-    p = parser.Parser(parameters.Parameters())
+    p = parser.Parser(parameters.Parameters(language='de-DE'))
     toks = p.parse(latex_3)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_3 == plain
@@ -57,4 +57,20 @@ def test_4():
     toks = p.parse(latex_4)
     plain, pos = utils.get_txt_pos(toks)
     assert plain_4 == plain
+
+#   vowel detection
+#
+latex_5 = r"""
+This is a $z$.
+This is an $m$.
+"""
+plain_5 = r"""
+This is a c-c-c.
+This is an f-f-f.
+"""
+def test_5():
+    p = parser.Parser(parameters.Parameters(language='en-GB'))
+    toks = p.parse(latex_5)
+    plain, pos = utils.get_txt_pos(toks)
+    assert plain_5 == plain
 

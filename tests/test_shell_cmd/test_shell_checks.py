@@ -27,19 +27,19 @@ def test_shell_single_1():
 msg_single = r"""1.) Line 1, column 9, Rule ID: PRIVATE::SINGLE_LETTER
 Message: Single letter detected.
 Suggestion: —
-...We have x   V-V-V Therefore, all is OK. ...
+...We have x   s-s-s Therefore, all is OK. ...
            ^
 
 """
 
 def test_shell_single_2():
-    out = run_shell.run_shell('--single-letter V', latex, encoding, json)
+    out = run_shell.run_shell('--single-letter s', latex, encoding, json)
     assert out == run_shell.msg_header + msg_single
 
 msg_equation = r"""1.) Line 3, column 5, Rule ID: PRIVATE::EQUATION_PUNCTUATION
 Message: Possibly incorrect punctuation after equation.
 Suggestion: —
-...We have x   V-V-V Therefore, all is OK. ...
+...We have x   s-s-s Therefore, all is OK. ...
                ^^^^^^^^^^^^^^^
 
 """

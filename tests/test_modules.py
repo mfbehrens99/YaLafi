@@ -20,7 +20,7 @@ latex_2 = r"""
 \begin{align}x\end{align}
 """
 plain_2 = r"""
-  V-V-V
+  s-s-s
 """
 def test_2():
     plain, nums = tex2txt.tex2txt(latex_2, tex2txt.Options())
@@ -30,7 +30,7 @@ latex_3 = r"""
 \begin{align}x\end{align}
 """
 plain_3 = r"""
-  V-V-V
+  s-s-s
 """
 def test_3():
     plain, nums = tex2txt.tex2txt(latex_3, tex2txt.Options(pack='*'))
@@ -40,7 +40,7 @@ latex_4 = r"""
 \begin{align}x\end{align}
 """
 plain_4 = r"""
-  V-V-V
+  s-s-s
 """
 def test_4():
     plain, nums = tex2txt.tex2txt(latex_4,
@@ -52,7 +52,7 @@ latex_5 = r"""
 \begin{align}x\end{align}
 """
 plain_5 = r"""
-  V-V-V
+  s-s-s
 """
 def test_5():
     def read(file):

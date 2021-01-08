@@ -26,13 +26,13 @@ f(x)
 
 plain_t = r"""
 We consider
-  a set C-C-C, a domain D-D-D, andx
-  a function E-E-E.
+  a set f-f-f, a domain c-c-c, andx
+  a function l-l-l.
 
-With a constant F-F-F, we require
-  V-V-V  equal W-W-W for all X-X-X,
-  Y-Y-Y  equal Z-Z-Z for all U-U-U
-  U-U-U  equal V-V-V for allW-W-W.
+With a constant d-d-d, we require
+  v-v-v  equal w-w-w for all z-z-z,
+  s-s-s  equal u-u-u for all v-v-v
+  s-s-s  equal w-w-w for allz-z-z.
 
 
 

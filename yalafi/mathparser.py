@@ -67,12 +67,16 @@ class MathParser:
         out = [defs.ActionToken(start),
                         defs.SpaceToken(start, '  ', pos_fix=True)]
         while True:
-            tokens, end = self.expand_math_section(buf, start,
+            tokens, end, first_tok = self.expand_math_section(buf, start,
                                         ['&', '\\\\', '$$', '\\]'], env.name)
             tokens = self.detect_math_parts(tokens)
+            if (first_tok and first_tok.txt
+                            in self.parser.parms.lang_context.vowel_sounds):
+                r_d = self.parser.parms.lang_context.math_repl_display_vowel
+            else:
+                r_d = self.parser.parms.lang_context.math_repl_display
             sec, next_repl = self.replace_section(False, tokens,
-                        first_section, next_repl,
-                        self.parser.parms.lang_context.math_repl_display)
+                                            first_section, next_repl, r_d)
             out += sec
             if end and end.txt == '&':
                 out.append(defs.SpaceToken(out[-1].pos, ' ', pos_fix=True))
@@ -95,11 +99,15 @@ class MathParser:
         else:
             if self.parser.parms.math_displayed_simple:
                 txt = self.parser.get_text_direct(out).strip()
+                if (txt and
+                        txt[0] in self.parser.parms.lang_context.vowel_sounds):
+                    repl = (self.parser.parms.lang_context.
+                                        math_repl_display_vowel[0])
+                else:
+                    repl = self.parser.parms.lang_context.math_repl_display[0]
                 out = [defs.ActionToken(start_simple),
                         defs.SpaceToken(start_simple, '  ', pos_fix=True),
-                        defs.TextToken(start_simple, self.parser.parms.
-                                        lang_context.math_repl_display[0],
-                                        pos_fix=True)]
+                        defs.TextToken(start_simple, repl, pos_fix=True)]
                 if txt and txt[-1] in self.parser.parms.math_punctuation:
                     out.append(defs.TextToken(out[-1].pos, txt[-1],
                                                         pos_fix=True))
@@ -110,11 +118,16 @@ class MathParser:
     #
     def expand_inline_math(self, buf, tok):
         buf.next()
-        tokens, x = self.expand_math_section(buf, tok.pos, ['$', '\\)'], None)
+        tokens, x, first_tok = self.expand_math_section(
+                                        buf, tok.pos, ['$', '\\)'], None)
         tokens = self.detect_math_parts(tokens)
+        if (first_tok and first_tok.txt
+                        in self.parser.parms.lang_context.vowel_sounds):
+            repl = self.parser.parms.lang_context.math_repl_inline_vowel
+        else:
+            repl = self.parser.parms.lang_context.math_repl_inline
         out = [defs.ActionToken(tok.pos)]
-        t, x = self.replace_section(True, tokens, True, True,
-                            self.parser.parms.lang_context.math_repl_inline)
+        t, x = self.replace_section(True, tokens, True, True, repl)
         out += t
         out.append(defs.ActionToken(out[-1].pos))
         return out
@@ -137,6 +150,7 @@ class MathParser:
 
         parser = self.parser
         parms = parser.parms
+        first_tok = buf.skip_space()
         out = []
         while True:
             tok = buf.skip_space()
@@ -190,7 +204,7 @@ class MathParser:
 
         out = [t for t in out
                     if type(t) not in (defs.VoidToken, defs.ActionToken)]
-        return out, tok
+        return out, tok, first_tok
 
     #   given a token sequence, find parts of math tokens
     #   not interrupted by other token types

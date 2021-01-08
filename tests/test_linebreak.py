@@ -57,10 +57,10 @@ latex_3 = r"""
 \end{align}
 """
 plain_3 = r"""
-  V-V-V  equal W-W-W
-    equal X-X-X
-    equal Y-Y-Y
-  Y-Y-Y  equal Z-Z-Z
+  s-s-s  equal v-v-v
+    equal w-w-w
+    equal z-z-z
+  z-z-z  equal u-u-u
 """
 def test_3():
     p = parser.Parser(parameters.Parameters())
