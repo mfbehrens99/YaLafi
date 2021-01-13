@@ -99,7 +99,8 @@ def modify_language_map(babel, lt):
 #   translate babel code to LanguageTool code
 #
 def translate_lang(lang):
-    return language_map.get(lang, language_map['english'])
+    # returns auto if language is not found
+    return language_map.get(lang, "auto")
 
 def h_foreignlanguage(parser, buf, mac, args, delim, pos):
     lang = translate_lang(parser.get_text_expanded(args[1]).strip())
